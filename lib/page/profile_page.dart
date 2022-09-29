@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getflix/page/home_page.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -16,8 +17,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: IconButton(
             onPressed: () {
-              Navigator.push((context),
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+              Get.back();
             },
             icon: const Icon(Icons.arrow_back_ios_new)),
       ),

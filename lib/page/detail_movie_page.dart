@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getflix/page/home_page.dart';
 
 class DetailMovie extends StatelessWidget {
@@ -11,8 +12,7 @@ class DetailMovie extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: IconButton(
             onPressed: () {
-              Navigator.push((context),
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+              Get.back();
             },
             icon: const Icon(Icons.arrow_back_ios_new)),
       ),
