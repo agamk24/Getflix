@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getflix/page/home_page.dart';
 
-class DetailMovie extends StatelessWidget {
-  const DetailMovie({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('About Me',
+            style: TextStyle(
+                decoration: TextDecoration.none,
+                fontSize: 20,
+                fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
         leading: IconButton(
             onPressed: () {
@@ -25,7 +29,7 @@ class DetailMovie extends StatelessWidget {
               height: 200,
               child: Image(
                   image: NetworkImage(
-                      'https://miro.medium.com/max/1000/1*ilC2Aqp5sZd1wi0CopD1Hw.png')),
+                      'https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/296281404_5341983799214767_3302191675270143950_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1EHbkduyv_EAX-hBjX5&_nc_ht=scontent-sin6-4.xx&oh=00_AT9TAqzFPfidTIuUp6Rp79lOw8IlYbvbjHA7xDC2oIT0Xg&oe=63384358')),
             ),
           ),
           Padding(
@@ -38,7 +42,7 @@ class DetailMovie extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-                    'Title',
+                    'Muhammad Agam Kurniawan',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         decoration: TextDecoration.none,
@@ -46,7 +50,20 @@ class DetailMovie extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+                      'I am an enthusiastic, self-motivated, reliable, responsible and hard working person. I am a mature team worker and adaptable to all challenging situations. I am able to work well both in a team environment as well as using own initiative.'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Hobby',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        decoration: TextDecoration.none,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                      'I love Playing video games, reading comics, watching anime and also i like playing some instrument like guitar and singing.')
                 ],
               ),
             ),

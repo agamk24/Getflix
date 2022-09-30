@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:getflix/list_movie.dart';
-import 'package:getflix/movie_endpoint.dart';
 
 class MovieCard extends StatelessWidget {
   final String? imageUrl;
