@@ -7,6 +7,7 @@ import 'package:getflix/domain/usecases/get_list_usecase.dart';
 class HomeController extends GetxController {
   HomeController(this._getListUsecase);
   final _crossAxis = 1.obs;
+  var _fontSize = 20.obs;
   final GetListUsecase _getListUsecase;
   final _totalPage = 0.obs;
   final _totalResult = 0.obs;
@@ -43,8 +44,10 @@ class HomeController extends GetxController {
 
   setView(bool isList) {
     _crossAxis.value = isList ? 1 : 2;
+    _fontSize.value = isList ? 20 : 10;
   }
 
   List<Result> get listData => _listResult;
   int get viewItem => _crossAxis.value;
+  int get sizeItem => _fontSize.value;
 }

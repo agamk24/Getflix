@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getflix/app/util/dependency.dart';
 import 'package:getflix/presentation/get/binding/home_binding.dart';
+import 'package:getflix/presentation/ui/page/detail_movie_page.dart';
+import 'package:getflix/presentation/ui/page/profile_page.dart';
 
 import 'presentation/ui/page/home_page.dart';
 
@@ -28,6 +30,21 @@ class MyApp extends StatelessWidget {
       home: const HomePage(),
       initialBinding: HomeBinding(),
       initialRoute: "/",
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => const HomePage(),
+        ),
+        GetPage(
+            name: '/profilePage',
+            page: () => const ProfilePage(),
+            transition: Transition.leftToRight),
+        GetPage(
+          name: '/detailPage',
+          page: () => const DetailMovie(),
+          transition: Transition.zoom,
+        ),
+      ],
     );
   }
 }

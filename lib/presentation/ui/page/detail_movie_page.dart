@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getflix/data/provider/network/api_endpoint.dart';
+import 'package:getflix/domain/entities/detail.dart';
 import 'package:getflix/presentation/ui/page/home_page.dart';
 
 class DetailMovie extends StatelessWidget {
-  const DetailMovie({super.key});
+  const DetailMovie({super.key, this.detail});
+  final Detail? detail;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +26,7 @@ class DetailMovie extends StatelessWidget {
             child: SizedBox(
               width: 200,
               height: 200,
-              child: Image(
-                  image: NetworkImage(
-                      'https://miro.medium.com/max/1000/1*ilC2Aqp5sZd1wi0CopD1Hw.png')),
+              child: Image(image: NetworkImage(baseUrlImage)),
             ),
           ),
           Padding(
@@ -36,16 +37,16 @@ class DetailMovie extends StatelessWidget {
               // color: Colors.black26,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    'Title',
+                    '${detail!.title}',
                     textAlign: TextAlign.left,
-                    style: TextStyle(
+                    style: const TextStyle(
                         decoration: TextDecoration.none,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
-                  Text(
+                  const Text(
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
                 ],
               ),
