@@ -3,6 +3,7 @@
 import 'package:get/get.dart';
 import 'package:getflix/domain/entities/result.dart';
 import 'package:getflix/domain/usecases/get_list_usecase.dart';
+import 'package:simple_connection_checker/simple_connection_checker.dart';
 
 class HomeController extends GetxController {
   HomeController(this._getListUsecase);
@@ -13,13 +14,15 @@ class HomeController extends GetxController {
   final _totalResult = 0.obs;
   var _isLoadMore = false;
   int _currentPage = 1;
-
+  final connectionResult = false.obs;
   var _listResult = <Result>[].obs;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
     _callApi();
+    connectionResult.value =
+        await SimpleConnectionChecker.isConnectedToInternet();
   }
 
   _callApi() async {
@@ -50,4 +53,5 @@ class HomeController extends GetxController {
   List<Result> get listData => _listResult;
   int get viewItem => _crossAxis.value;
   int get sizeItem => _fontSize.value;
+  bool get isConnected => connectionResult.value;
 }

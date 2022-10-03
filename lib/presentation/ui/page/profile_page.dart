@@ -8,28 +8,32 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About Me',
-            style: TextStyle(
-                decoration: TextDecoration.none,
-                fontSize: 20,
-                fontWeight: FontWeight.bold)),
+        title: const Text(
+          'About Me',
+          style: TextStyle(
+              decoration: TextDecoration.none,
+              fontSize: 20,
+              fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(Icons.arrow_back_ios_new)),
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios_new),
+        ),
       ),
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: SizedBox(
-              width: 200,
-              height: 200,
-              child: Image(
-                  image: NetworkImage(
-                      'https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/296281404_5341983799214767_3302191675270143950_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1EHbkduyv_EAX-hBjX5&_nc_ht=scontent-sin6-4.xx&oh=00_AT9TAqzFPfidTIuUp6Rp79lOw8IlYbvbjHA7xDC2oIT0Xg&oe=63384358')),
+              width: MediaQuery.of(context).size.width,
+              height: 300,
+              child: const Image(
+                fit: BoxFit.cover,
+                image: NetworkImage('https://i.imgur.com/yshwbY9.jpg'),
+              ),
             ),
           ),
           Padding(

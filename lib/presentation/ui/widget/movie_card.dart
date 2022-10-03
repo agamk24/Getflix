@@ -16,10 +16,7 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 30,
-      ),
+      margin: const EdgeInsets.fromLTRB(40, 20, 40, 0),
       decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.circular(15),
@@ -37,13 +34,13 @@ class MovieCard extends StatelessWidget {
             BlendMode.multiply,
           ),
           image: NetworkImage(imageUrl!),
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.contain,
         ),
       ),
       child: Stack(
         children: [
           Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment.bottomLeft,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -56,6 +53,10 @@ class MovieCard extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
+                      const Icon(
+                        Icons.star_border_purple500_rounded,
+                        color: Colors.yellow,
+                      ),
                       Text(
                         overflow: TextOverflow.clip,
                         title!,

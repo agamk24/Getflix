@@ -36,7 +36,10 @@ class MovieApi implements APIRequestRepresentable {
         "page": page.toString()
       };
     } else {
-      return null;
+      return {
+        "api_key": apiKey,
+        "language": defaultLanguage,
+      };
     }
   }
 

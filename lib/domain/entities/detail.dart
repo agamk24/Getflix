@@ -1,21 +1,21 @@
-import 'package:getflix/domain/entities/genre.dart';
-
 class Detail {
   Detail({
     this.backdropPath,
-    this.genres,
+    this.posterPath,
     this.originalTitle,
     this.overview,
     this.releaseDate,
     this.title,
     this.voteAverage,
+    this.id,
   });
 
   String? backdropPath;
-  List<Genre>? genres;
+  String? posterPath;
   String? originalTitle;
   String? overview;
   DateTime? releaseDate;
   String? title;
   double? voteAverage;
+  String? id;
 }

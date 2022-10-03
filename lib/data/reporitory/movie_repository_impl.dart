@@ -26,7 +26,7 @@ class MovieRepositoryImpl implements MovieRepository {
       return MovieModel.fromJson(response);
     } catch (e) {
       print(e);
-      rethrow;
+      throw Exception(e);
     }
   }
 }

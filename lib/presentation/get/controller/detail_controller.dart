@@ -4,10 +4,23 @@ import 'package:getflix/domain/usecases/get_detail_usecase.dart';
 
 class DetailController extends GetxController {
   DetailController(this._getDetailUsecase);
+
   final GetDetailUsecase _getDetailUsecase;
-  int _currentPage = 1;
 
-  var _detailMovie = <Detail>[].obs;
+  final _detailMovie = Detail().obs;
 
-  List<Detail> get detailData => _detailMovie;
+  @override
+  void onInit() {
+    super.onInit();
+    _callApi();
+  }
+
+  _callApi() async {
+    _detailMovie.value =
+        await _getDetailUsecase.execute(Get.arguments.toString());
+
+    print('data detail ${_detailMovie.value.backdropPath}');
+  }
+
+  Detail get detailData => _detailMovie.value;
 }

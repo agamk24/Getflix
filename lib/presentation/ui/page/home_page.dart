@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:getflix/data/provider/network/api_endpoint.dart';
-import 'package:getflix/domain/entities/detail.dart';
-import 'package:getflix/domain/entities/result.dart';
 import 'package:getflix/presentation/get/controller/home_controller.dart';
-import 'package:getflix/presentation/ui/page/profile_page.dart';
 import 'package:get/get.dart';
+import 'package:getflix/presentation/ui/routes/route_name.dart';
 import 'package:getflix/presentation/ui/widget/movie_card.dart';
-import 'detail_movie_page.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -51,32 +48,35 @@ class HomePage extends GetView<HomeController> {
               icon: const Icon(Icons.view_list_rounded)),
           IconButton(
               onPressed: () {
-                Get.toNamed('/profilePage');
+                Get.toNamed(RouteName.profilePage);
               },
               icon: const Icon(Icons.person)),
         ],
       ),
-      drawer: const Drawer(),
       body: Obx(
-        () => GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: controller.viewItem),
-          itemCount: controller.listData.length,
-          itemBuilder: (context, index) {
-            var data = controller.listData[index];
-            return GestureDetector(
-              onTap: (() {
-                Get.toNamed('/detailPage');
-              }),
-              child: MovieCard(
-                imageUrl: '$baseUrlImage${data.backdropPath}',
-                title: data.title,
-                rating: data.voteAverage.toString(),
-                fontSize: controller.sizeItem,
+        () => controller.isConnected
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: controller.viewItem),
+                itemCount: controller.listData.length,
+                itemBuilder: (context, index) {
+                  var data = controller.listData[index];
+                  return GestureDetector(
+                    onTap: (() {
+                      Get.toNamed(RouteName.detailPage, arguments: data.id);
+                    }),
+                    child: MovieCard(
+                      imageUrl: '$baseUrlImage${data.posterPath}',
+                      title: data.voteAverage!.toString(),
+                      rating: data.voteAverage.toString(),
+                      fontSize: controller.sizeItem,
+                    ),
+                  );
+                },
+              )
+            : Container(
+                color: Colors.white,
               ),
-            );
-          },
-        ),
       ),
     );
   }
